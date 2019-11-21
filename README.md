@@ -13,7 +13,7 @@
 
    `git clone <<your_github_repo_url>>`
 
-### 2. Main GitHub Account Holder Setup
+### 2. Production Github Account Setup
 
 1. Contact the Lead Educator for the Web Development program to get the repo to clone from.
 
@@ -31,22 +31,19 @@
     $ git pull production master
     ```
 
-5. Ensure that the client and server environments work. You should see the site once everything is done.  
+5. Ensure that the client works. You should see the site once everything is done.  
 
-    To install both client & server, and start them:
+    To install the client & start it for *local development*, run:
     ```bash
-    $ npm run setup:all
+    $ npm run setup:client
     ```
 
-    If you are not going to use the server, you can then:
-
+    The next time you develop for the client, you don't have to install it. Just start it:
     ```bash
-    $ cd ./client
-    $ npm install
-    $ npm start
+    $ npm run start:client
     ```
 
-    > **FYI**: Both the client & server contain npm packages **installed by default** so you can get ship your *minimum viable website* faster. They are listed in their respective `package.json` files and in the *Resources* section at the bottom of this README.
+    > **FYI**: The client contains npm packages **installed by default** so you can get ship your *minimum viable website* faster. They are listed in their respective `package.json` files and in the *Resources* section at the bottom of this README.
 
 6. Add and commit the files
 
@@ -67,7 +64,7 @@
    ```bash
    # on their local master
    $ git pull
-   $ npm run setup:all
+   $ npm run setup:client
    ```
 
 
@@ -84,15 +81,16 @@ $ git push production
 ```
 
 ### 4. Publish to a live server
-When the code is pushed to the production remote on GitHub, Netlify will build and deploy the client & server on Netlify servers, so you can see the site live!
+When the code is pushed to the production remote on GitHub, Netlify will build and deploy the client on Netlify servers, so you can see the site live!
 
 > **Please allow a _minimum_ of 5 minutes for the build process to complete and publish your site on Netlify.**
 
 #### Public Site Link
-The URL for the public site is: https://bstn-3d-fall-2019-team-{TEAM NUMBER HERE}.netlify.com
+The URL for **YOUR TEAM's** public site is: `https://bstn-3d-{SEASON HERE}-{YEAR HERE}-team-{TEAM NUMBER HERE}.netlify.com`  
+(For example: `https://bstn-3d-fall-2019-team-5.netlify.com`)
 
 #### Debugging
-- run a production react build locally (npm run build), serve it with the LiveServer extension and try debugging it locally
+- run a production react build locally (npm run build), serve it with the `LiveServer ` extension and try debugging it locally
 - Use all of the debugging tools at your disposal:
   - React Developer Tools
   - Debugger Tab in the Browser
@@ -126,10 +124,3 @@ The URL for the public site is: https://bstn-3d-fall-2019-team-{TEAM NUMBER HERE
 - Recharts (charting): http://recharts.org/en-US (highly customizable)
 - React Drag n Drop: https://github.com/atlassian/react-beautiful-dnd
 - React Component Awesome List (install others you want to use as you please!): https://github.com/brillout/awesome-react-components
-
-### Server (default installs)
-- Express: https://expressjs.com/en/api.html
-- Nodemon: https://www.npmjs.com/package/nodemon
-- CORS Middlware: https://expressjs.com/en/resources/middleware/cors.html
-- JWT for Node.js: https://github.com/auth0/node-jsonwebtoken
-- nanoid: https://github.com/ai/nanoid
