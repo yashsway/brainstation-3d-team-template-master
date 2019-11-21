@@ -8,7 +8,8 @@
   publish = "client/build"
 
   # Default build command.
-  command = "cd client && npm install && npm run build"
+  command = "npm run setup:all:prod"
+  functions = "functions"
 
 [[redirects]]
   from = "/*"

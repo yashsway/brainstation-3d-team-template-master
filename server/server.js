@@ -1,3 +1,4 @@
+const serverless = require('serverless-http');
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const cors = require('cors');
@@ -16,8 +17,10 @@ app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
+const router = express.Router();
+
 // custom auth middleware
-app.use((req, res, next) => {
+router.use((req, res, next) => {
   // public routes that don't need authorization
   if (req.url === '/signup' || req.url === '/login' || req.url === '/ping') {
     next();
@@ -54,11 +57,11 @@ app.use((req, res, next) => {
 });
 
 // --- Open Routes ---
-app.get("/ping", (req, res) => {
+router.get("/ping", (req, res) => {
   res.json({ alive: true, serverTimeUnix: new Date().getTime() / 1000 });
 });
 
-app.post('/signup', (req, res) => {
+router.post('/signup', (req, res) => {
   const { username, password } = req.body; // { username: '', password: '' }
   // set the user in our (fake) database
   users[username] = {
@@ -75,7 +78,7 @@ app.post('/signup', (req, res) => {
   res.status(201).json({ success: true, token: tokenObj.token });
 });
 
-app.post('/login', (req, res) => {
+router.post('/login', (req, res) => {
   const { username, password } = req.body; // { username: '', password: '' }
   // find the user
   const foundUser = users[username];
@@ -101,7 +104,7 @@ app.post('/login', (req, res) => {
 
 
 // --- Protected Routes ---
-app.get('/vault', (req, res) => {
+router.get('/vault', (req, res) => {
   const secData = ['secure thing 1', 'secure thing 2', 'secure thing 3'];
 
   res.json({
@@ -111,7 +114,8 @@ app.get('/vault', (req, res) => {
   });
 });
 
-// attach the server to a port so it can listen for requests
-app.listen(serverPort, () => {
-  console.log('server is running on port ', serverPort);
-});
+
+app.use('/.netlify/functions/server', router);
+
+module.exports = app;
+module.exports.handler = serverless(app);
