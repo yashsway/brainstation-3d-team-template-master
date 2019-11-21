@@ -1,0 +1,45 @@
+$brk-tablet-min: 768px;
+$brk-desktop-min: 1024px;
+$brk-mobile-max: ($brk-tablet-min - 1);
+$brk-tablet-max: ($brk-desktop-min - 1);
+$brk-desktop-lg: 1200px;
+$brk-desktop-xl: 1920px;
+
+$brk-landscape: "(orientation: landscape)";
+$brk-portrait: "(orientation: portrait)";
+
+$brk-small-height-devices: "screen and (max-height: 568px) and (max-width: #{$brk-mobile-max})";
+$brk-breakpoint-mobile: "screen and (max-width: #{$brk-mobile-max})";
+$brk-breakpoint-tablet: "screen and (max-width: #{$brk-tablet-max})";
+$brk-breakpoint-tablet-and-desktop: "screen and (min-width: #{$brk-tablet-min})";
+$brk-breakpoint-desktop: "screen and (min-width: #{$brk-desktop-min})";
+$brk-breakpoint-tablet-only: "screen and (min-width: #{$brk-tablet-min}) and (max-width: #{$brk-tablet-max})";
+$brk-breakpoint-desktop-lg: "screen and (min-width: #{$brk-desktop-lg})";
+$brk-breakpoint-desktop-xl: "screen and (min-width: #{$brk-desktop-xl})";
+$brk-breakpoint-2x: "screen and (-webkit-min-device-pixel-ratio: 2), (min-resolution: 320dpi)";
+$brk-breakpoint-3x: "screen and (-webkit-min-device-pixel-ratio: 3), (min-resolution: 480dpi)";
+
+// TODO: use this mixins below for responsive!
+@mixin brk-desktop-up() {
+  @media #{$brk-breakpoint-desktop} {
+    @content;
+  }
+}
+
+@mixin brk-tablet-up() {
+  @media #{$brk-breakpoint-tablet-and-desktop} {
+    @content;
+  }
+}
+
+@mixin brk-tablet-down() {
+  @media #{$brk-breakpoint-tablet} {
+    @content;
+  }
+}
+
+@mixin brk-mobile-down() {
+  @media #{$brk-breakpoint-mobile} {
+    @content;
+  }
+}

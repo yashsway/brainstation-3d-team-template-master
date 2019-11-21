@@ -1,0 +1,9 @@
+// change to rem units from any other unit
+@function calculateRem($size, $base: 16px) {
+  $remSize: decimal-round($size / $base, 2);
+  @return #{$remSize}rem;
+}
+// change to rem units
+@mixin fontSize($size, $base: $base-font-size) {
+  font-size: calculateRem($size, $base);
+}

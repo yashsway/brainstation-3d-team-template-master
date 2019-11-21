@@ -1,0 +1,30 @@
+{
+  "name": "brainstation-3d-team-template-master",
+  "version": "1.0.0",
+  "description": "Base static site template with a client & server for students in the Web Dev Diploma Program attending the 3D Hackathon",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start:client": "cd client && npm start",
+    "start:server": "cd server && npm start",
+    "start:all": "npm-run-all --parallel start:client start:server",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "install:all": "npm-run-all --parallel install:client install:server",
+    "setup:all": "npm install && npm-run-all --sequential install:all start:all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/brainstation-web-development-diploma/brainstation-3d-team-template-master.git"
+  },
+  "keywords": [],
+  "author": "Brainstation",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://gitlab.com/brainstation-web-development-diploma/brainstation-3d-team-template-master/issues"
+  },
+  "homepage": "https://gitlab.com/brainstation-web-development-diploma/brainstation-3d-team-template-master#readme",
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
