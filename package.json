@@ -5,13 +5,16 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "build:client": "cd client && npm run build",
     "start:client": "cd client && npm start",
     "start:server": "cd server && npm start",
     "start:all": "npm-run-all --parallel start:client start:server",
+    "start:all:prod": "npm-run-all --parallel build:client start:server",
     "install:client": "cd client && npm install",
     "install:server": "cd server && npm install",
     "install:all": "npm-run-all --parallel install:client install:server",
-    "setup:all": "npm install && npm-run-all --sequential install:all start:all"
+    "setup:all": "npm install && npm-run-all --sequential install:all start:all",
+    "setup:all:prod": "npm install && npm-run-all --sequential install:all start:all:prod"
   },
   "repository": {
     "type": "git",
