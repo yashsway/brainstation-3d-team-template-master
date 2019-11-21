@@ -9,7 +9,6 @@
 
   # Default build command.
   command = "npm run setup:all:prod"
-  functions = "functions"
 
 [[redirects]]
   from = "/*"
