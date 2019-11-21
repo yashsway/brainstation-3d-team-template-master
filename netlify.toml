@@ -8,7 +8,7 @@
   publish = "client/build"
 
   # Default build command.
-  command = "npm run setup:all:prod"
+  command = "npm run setup:client:prod"
 
 [[redirects]]
   from = "/*"
