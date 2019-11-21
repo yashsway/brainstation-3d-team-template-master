@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build:client": "cd client && npm run build",
-    "build:server": "cd lambda-build && npm run build:functions",
+    "build:server": "cd lambda-builder && npm run build:functions",
     "start:client": "cd client && npm start",
     "start:server": "cd server && npm start",
     "start:all": "npm-run-all --parallel start:client start:server",
