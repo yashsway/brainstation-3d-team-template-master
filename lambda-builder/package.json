@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:functions": "cd .. && netlify-lambda build server"
+    "build:functions": "npm install && netlify-lambda build ./../server"
   },
   "keywords": [],
   "author": "",
