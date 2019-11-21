@@ -1,0 +1,15 @@
+{
+  "name": "brainstation-3d-lambda-builder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:functions": "cd .. && netlify-lambda build server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "netlify-lambda": "^1.6.3"
+  }
+}
